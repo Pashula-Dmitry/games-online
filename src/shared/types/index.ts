@@ -1,5 +1,3 @@
-import { AxiosRequestConfig } from "axios";
-
 export interface Provider {
   id: string;
   title: string;
@@ -16,18 +14,29 @@ type Real = {
   };
 };
 
-export interface Game {
-  [gameId: string]: {
-    title: string;
-    provider: string;
-    collections: Collection;
-    real: Real;
-    demo?: string;
-  };
+export type GameT = {
+  title: string;
+  provider: string;
+  collections: Collection;
+  real: Real;
+  demo?: string;
 };
 
-export interface IGame {
-  getGames(url: string, config: AxiosRequestConfig): Promise<Game>;
-  getProviders(url: string, config: AxiosRequestConfig): Promise<Provider[]>;
-
+export interface Game {
+  [gameId: string]: GameT;
 }
+
+export type Filters = {
+  selectedProviders?: Provider[],
+  search?: string;
+};
+
+export type Page = {
+  page: number;
+  offset: number;
+};
+
+export type ReturnTypeReduceProviders = {
+  ids: string[];
+  titles: string[];
+};

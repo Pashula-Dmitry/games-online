@@ -1,16 +1,20 @@
 import React from 'react';
-import 'src/App.css';
+import { BrowserRouter } from 'react-router-dom';
+import { StoreContext } from 'core/StoreContext';
+import { Routes } from './Routes';
+import '../App.css';
 
-import { CssBaseline } from '@mui/material';
 
 function App() {
-  return (
-    <>
-      <CssBaseline />
-      <div className="App">
-      </div>
-    </>
 
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <StoreContext>
+          <Routes />
+        </StoreContext>
+      </BrowserRouter>
+    </div>
   );
 }
 

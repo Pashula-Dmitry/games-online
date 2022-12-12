@@ -1,0 +1,1 @@
+export { PaginationMUI } from './Pagination';
