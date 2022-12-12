@@ -28,6 +28,7 @@ export function Main(): JSX.Element {
           dispatch(ac.setProviders(response[1].data));
         } catch(err) {
           console.error(err);
+          dispatch(ac.setGames({}));
         }
       }
     )()
